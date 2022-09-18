@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 export const Statistics = ({ good, neutral, bad, total, positive }) => {
   return (
     <StylesStatistics>
-      <h2 className="tittle-stats">Statistics</h2>
       <p>
         Good<span className="area">{good}</span>
       </p>
@@ -30,7 +29,7 @@ Statistics.propTypes = {
     good: PropTypes.number.isRequired,
     neutral: PropTypes.number.isRequired,
     bad: PropTypes.number.isRequired,
-    total: PropTypes.number.isRequired,
+    total: PropTypes.func.isRequired,
     positive: PropTypes.number.isRequired,
   }),
 };

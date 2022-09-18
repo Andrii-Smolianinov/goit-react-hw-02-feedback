@@ -1,29 +1,17 @@
 import { StylesFeedbackOptions } from 'components/FeedbackOptions/StylesFeedbackOptions';
 import PropTypes from 'prop-types';
 
-export const FeedbackOptions = ({
-  onClickGood,
-  onClickNeutral,
-  onClickBad,
-}) => {
+export const FeedbackOptions = ({ onClickButton, options }) => {
   return (
     <StylesFeedbackOptions>
-      <h1 className="main-tittle">Please leave feedback</h1>
-      <button className="button" onClick={onClickGood}>
-        Good
-      </button>
-      <button className="button" onClick={onClickNeutral}>
-        Neutral
-      </button>
-      <button className="button" onClick={onClickBad}>
-        Bad
-      </button>
+      {options.map((item, index )=> (
+        <button className="button" key={index} name={item} onClick={onClickButton} type="button">{item}</button>
+      ) )}
     </StylesFeedbackOptions>
   );
 };
 
 FeedbackOptions.propTypes = {
-  onClickGood: PropTypes.func.isRequired,
-  onClickNeutral: PropTypes.func.isRequired,
-  onClickBad: PropTypes.func.isRequired,
+  onClickButton: PropTypes.func.isRequired,
+  options: PropTypes.array.isRequired,
 };
